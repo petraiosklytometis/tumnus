@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: django-role-permissions
+Version: 3.2.0
+Summary: A django app for role based permissions.
+Home-page: http://github.com/vintasoftware/django-role-permissions
+Author: Filipe Ximenes
+Author-email: filipeximenes@gmail.com
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django (>=1.5)
+
