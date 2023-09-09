@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block 'body' %}
+  <div class='container'>
+    <form action='{% url 'login' %}' method='POST'> {% csrf_token %}
+      <br>
+      <label>E-mail:</label>
+      <input type="email" placeholder="Digite seu E-mail..." name="email" class='form-control'></input>
+      <br>
+      <label>Senha:</label>
+      <input type="password" placeholder="Digite sua senha..." name="password" class='form-control'></input>
+      <br>
+      <input type='submit' value='Enviar' class='btn btn-success'>
+    </form>
+  </div>
+{% endblock %}
