@@ -3,6 +3,11 @@
 
 {% block 'body' %}
   <div class='container'>
+    {% if messages %}{% endif %}
+      <br>
+      {% for message in messages %}
+      <div class='alert {{message.tags}}'>{{message}}</div>
+      {% endfor %}
     <form action='{% url 'cadastrar_vendedor' %}' method='POST'> {% csrf_token %}
       <br>
       <label>E-mail:</label>
@@ -11,7 +16,36 @@
       <label>Senha:</label>
       <input type="password" placeholder="Digite sua senha..." name="password" class='form-control'></input>
       <br>
-      <input type='submit' value='Enviar' class='btn btn-success'>
+      <input type='submit' value='Enviar' class='btn btn-dark bg-btn'>
     </form>
+    <hr class='bg-hr'>
+
+    <table class="table table-hover bg-table">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Último Login</th>
+          <th scope="col">Deletar User</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for vendedor in vendedores %}
+          <tr>
+            <th>{{vendedor.first_name}}</th>
+            <td>{{vendedor.last_name}}</td>
+            <td>{{vendedor.email}}</td>
+            <td>{% if not vendedor.last_login %}
+                  Nunca fez login.
+                {% else %}
+                  {{vendedor.last_login}}</td>
+                {% endif %}
+              
+            <td><a href="{% url 'delete_user' vendedor.id %}" class='btn btn-danger'>DELETAR</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock %}
