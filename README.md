@@ -9,3 +9,29 @@ Sigla para _"First Expired First Out"_, ou seja, entre os produtos do estoque **
 Construir um ERP modular com interface amigável ao usuário, um sistema de gerenciamento de FEFO em módulos, de modo que possa atender o pequeno e o médio empreendedor, buscando também incentivar a formação de cooperativas de desenvolvimento de código em sinergia com cooperativas de comércio de alimentos.
 
 <img height="400" style="border-radius:50px;" src="https://res.cloudinary.com/petraiosklytometis/image/upload/v1694380215/Beige_Minimalist_Financial_Plan_Dashboard_Graph_1_dzakk7.gif">
+
+### 🏁 Features
+
+- [x] Cadastro de Usuário
+- [x] Cadastro de Produto
+- [ ] Cadastro de Empresa
+- [x] Cadastro de Vendedor
+- [x] Listagem de Produtos
+- [ ] Listagem de Empresa
+- [x] Listagem de Gerentes
+- [x] Deletar Produto
+- [ ] Desativar Empresa
+- [x] Deletar Vendedor
+- [x] Login
+- [x] Reset de senha
+- [ ] PDF com as informações das movimentações do mês
+- [x] Acessando Informações Filtradas
+
+
+
+### 🛠 Tecnologias
+<p>As seguintes ferramentas foram usadas na construção do projeto:</p>
+
+- ![DJANGO](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+- ![BOOTSTRAP](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+- ![SQLITE](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
