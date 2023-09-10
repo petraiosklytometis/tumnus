@@ -27,7 +27,7 @@
           <th scope="col">Sobrenome</th>
           <th scope="col">E-mail</th>
           <th scope="col">Último Login</th>
-          <th scope="col">Deletar User</th>
+          <th scope="col">Deletar Usuário</th>
         </tr>
       </thead>
       <tbody>
@@ -42,7 +42,7 @@
                   {{vendedor.last_login}}</td>
                 {% endif %}
               
-            <td><a href="{% url 'delete_user' vendedor.id %}" class='btn btn-danger'>DELETAR</a></td>
+            <td><a href="{% url 'delete_user' vendedor.id %}" class='btn btn-dark bg-btn'>DELETAR</a></td>
           </tr>
         {% endfor %}
       </tbody>

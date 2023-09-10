@@ -1,10 +1,10 @@
 .fundo{
-    background-color: #9f1f1f;
+    background-color: #370994;
     color: white;
 }
 
 .bg-nav{
-    background-color: #400000;
+    background-color: #8C52FF;
 }
 
 .bg-hr{
@@ -12,12 +12,12 @@
 }
 
 .bg-btn{
-    background-color: black;
+    background-color: rgb(15, 109, 172);
     color: white;
 }
 
 .bg-table{
-    background-color: #794044;
+    background-color: #a8bfe1;
     color: black;
 }
 
