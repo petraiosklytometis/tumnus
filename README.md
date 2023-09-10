@@ -7,3 +7,5 @@ Sigla para _"First Expired First Out"_, ou seja, entre os produtos do estoque **
 
 ### Objetivo
 Construir um ERP modular com interface amigável ao usuário, um sistema de gerenciamento de FEFO em módulos, de modo que possa atender o pequeno e o médio empreendedor, buscando também incentivar a formação de cooperativas de desenvolvimento de código em sinergia com cooperativas de comércio de alimentos.
+
+<img src="https://res.cloudinary.com/petraiosklytometis/image/upload/v1694380215/Beige_Minimalist_Financial_Plan_Dashboard_Graph_1_dzakk7.gif">
