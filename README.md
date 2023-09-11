@@ -13,9 +13,9 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 ### 🏁 Features
 
 - [x] Cadastro de Usuário
-- [ ] Cadastro de Produto
+- [x] Cadastro de Produto
 - [ ] Cadastro de Empresa
-- [x] Cadastro de Vendedor
+- [ ] Cadastro de Vendedor
 - [x] Listagem de Produtos
 - [ ] Listagem de Empresa
 - [ ] Listagem de Gerentes
