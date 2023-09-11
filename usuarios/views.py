@@ -16,6 +16,7 @@ def cadastrar_vendedor(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         sobrenome = request.POST.get('sobrenome')
+        # TODO: Criar Validação de email
         email = request.POST.get('email')
         password = request.POST.get('password')
 
