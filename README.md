@@ -19,6 +19,8 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 - [ ] Listagem de Produtos
 - [ ] Listagem de Empresa
 - [ ] Listagem de Gerentes
+- [ ] Data de Validade
+- [ ] Controle de Vencimentos
 - [ ] Deletar Produto
 - [ ] Desativar Empresa
 - [x] Deletar Vendedor
