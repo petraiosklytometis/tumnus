@@ -1,57 +1,81 @@
-<form
-  action="{% url 'add_produto' %}"
-  method="POST"
-  enctype="multipart/form-data"
->
-  {% csrf_token %}
+{% extends 'base.html' %}
 
-  <label>Imagens:</label>
-  <input type="file" name="imagens" multiple />
-  <br />
-  <br />
-  <label>Descrição:</label>
-  <input type="text" name="descricao" />
-  <br />
-  <br />
-  <label>EAN</label>
-  <input type="number" name="ean" />
-  <br />
-  <br />
-  <label>SKU</label>
-  <input type="text" name="sku" />
-  <br />
-  <br />
-  <label>Categoria</label>
-  <select name="categoria">
-    {% for categoria in categorias %}
-    <option value="{{categoria.id}}">{{categoria.titulo}}</option>
-    {% endfor %}
-  </select>
-  <br />
-  <br />
-  <label>Quantidade em Estoque</label>
-  <input type="number" name="quantidade" />
-  <br />
-  <br />
-  <label>Preço de Custo</label>
-  <input
-    type="number"
-    pattern="[0-9]+([,\.][0-4]+)?"
-    min="0"
-    step="any"
-    name="preco_custo"
-  />
-  <br />
-  <br />
-  <label>Preço de Venda</label>
-  <input
-    type="number"
-    pattern="[0-9]+([,\.][0-4]+)?"
-    min="0"
-    step="any"
-    name="preco_venda"
-  />
-  <br />
-  <br />
-  <input type="submit" value="Cadastrar" />
-</form>
+{% block 'body' %}
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form
+                action="{% url 'add_produto' %}"
+                method="POST"
+                enctype="multipart/form-data"
+                class="contact-form"
+            >
+                {% csrf_token %}
+                <h3 class="form-title">CADASTRO DE PRODUTOS</h3> <!-- Adicionei a classe "form-title" -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="imagens">Imagens:</label>
+                        <input type="file" name="imagens" id="imagens" class="form-control" multiple />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" name="descricao" id="descricao" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="ean">EAN:</label>
+                        <input type="number" name="ean" id="ean" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sku">SKU:</label>
+                        <input type="text" name="sku" id="sku" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="categoria">Categoria:</label>
+                        <select name="categoria" id="categoria" class="form-control">
+                            {% for categoria in categorias %}
+                            <option value="{{categoria.id}}">{{categoria.titulo}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="quantidade">Quantidade em Estoque:</label>
+                        <input type="number" name="quantidade" id="quantidade" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="preco_custo">Preço de Custo:</label>
+                        <input
+                            type="number"
+                            pattern="[0-9]+([,\.][0-4]+)?"
+                            min="0"
+                            step="any"
+                            name="preco_custo"
+                            id="preco_custo"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preco_venda">Preço de Venda:</label>
+                        <input
+                            type="number"
+                            pattern="[0-9]+([,\.][0-4]+)?"
+                            min="0"
+                            step="any"
+                            name="preco_venda"
+                            id="preco_venda"
+                            class="form-control"
+                        />
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btnContact">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

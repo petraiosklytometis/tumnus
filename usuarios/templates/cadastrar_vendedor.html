@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block 'body' %}
   <div class='container'>
     {% if messages %}{% endif %}
@@ -8,26 +7,26 @@
       {% for message in messages %}
       <div class='alert {{message.tags}}'>{{message}}</div>
       {% endfor %}
-    <form action='{% url 'cadastrar_vendedor' %}' method='POST'> {% csrf_token %}
+    <form action='{% url 'cadastrar_vendedor' %}' method='POST' class="contact-form"> {% csrf_token %}
       <br>
-      <label>Nome:</label>
-      <input type="text" placeholder="Digite seu nome..." name="nome" class='form-control'></input>
+      <label for="nome">Nome:</label>
+      <input type="text" placeholder="Digite seu nome..." name="nome" id="nome" class='form-control'></input>
       <br>
-      <label>Sobrenome:</label>
-      <input type="text" placeholder="Digite seu sobrenome..." name="sobrenome" class='form-control'></input>
+      <label for="sobrenome">Sobrenome:</label>
+      <input type="text" placeholder="Digite seu sobrenome..." name="sobrenome" id="sobrenome" class='form-control'></input>
       <br>
-      <label>E-mail:</label>
-      <input type="email" placeholder="Digite seu e-mail..." name="email" class='form-control'></input>
+      <label for="email">E-mail:</label>
+      <input type="email" placeholder="Digite seu e-mail..." name="email" id="email" class='form-control'></input>
       <br>
-      <label>Senha:</label>
-      <input type="password" placeholder="Digite sua senha..." name="password" class='form-control'></input>
+      <label for="password">Senha:</label>
+      <input type="password" placeholder="Digite sua senha..." name="password" id="password" class='form-control'></input>
       <br>
-      <input type='submit' value='Enviar' class='btn btn-dark bg-btn'>
+      <input type='submit' value='Enviar' class='btnContactSubmit btn btn-dark bg-btn'>
     </form>
     <hr class='bg-hr'>
 
-    <table class="table table-hover bg-table">
-      <thead>
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Nome</th>
           <th scope="col">Sobrenome</th>
@@ -39,7 +38,7 @@
       <tbody>
         {% for vendedor in vendedores %}
           <tr>
-            <th>{{vendedor.first_name}}</th>
+            <td>{{vendedor.first_name}}</td>
             <td>{{vendedor.last_name}}</td>
             <td>{{vendedor.email}}</td>
             <td>{% if not vendedor.last_login %}
@@ -48,7 +47,7 @@
                   {{vendedor.last_login}}</td>
                 {% endif %}
               
-            <td><a href="{% url 'delete_user' vendedor.id %}" class='btn btn-dark bg-btn'>DELETAR</a></td>
+            <td><a href="{% url 'delete_user' vendedor.id %}" class='btnContact btn btn-dark bg-btn'>DELETAR</a></td>
           </tr>
         {% endfor %}
       </tbody>

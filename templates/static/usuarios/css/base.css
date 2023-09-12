@@ -1,23 +1,77 @@
-.fundo{
-    background-color: #370994;
-    color: white;
+
+.navbar {
+    margin-left: 20px; /* Espaço à esquerda */
+    margin-right: 20px; /* Espaço à direita */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2); /* Sombra */
+    padding-left: 10px; /* Espaço à esquerda para afastar a primeira palavra */
 }
 
-.bg-nav{
-    background-color: #8C52FF;
+
+
+.form-title {
+    background-color: #0073e6; /* Azul */
+    color: #fff; /* Texto branco */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para destacar o título */
 }
 
-.bg-hr{
-    background-color: black;
+.contact-form {
+    background: #fff;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 90%; /* Aumente a largura para 90% */
+    max-width: 800px; /* Defina um valor máximo para a largura */
+    padding: 30px;
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #fff; /* Adicione a borda branca */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
 }
 
-.bg-btn{
-    background-color: rgb(15, 109, 172);
-    color: white;
+.fundo {
+    background-color: #f8f8f8; /* Fundo mais claro */
+    color: #333; /* Texto escuro */
 }
 
-.bg-table{
-    background-color: #a8bfe1;
-    color: black;
+.bg-nav {
+    background-color: #0073e6; /* Azul */
 }
 
+.bg-hr {
+    background-color: #ddd; /* Cinza claro */
+}
+
+.bg-btn {
+    background-color: #4caf50; /* Verde */
+    color: #fff; /* Texto branco */
+}
+
+.bg-table {
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Texto escuro */
+}
+
+.btnContact {
+    border-radius: 5px; /* Borda arredondada */
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #0073e6; /* Azul */
+    color: #fff; /* Texto branco */
+}
