@@ -2,7 +2,7 @@
 
 _Dando início ao Side Project de um Sistema de Gestão de Estabelecimento, com foco no controle de estoque, visualização de vendas e desempenho geral (Dashboard) e controle de datas de validade. O foco é o Mercado FEFO, onde tenho experiência e onde a dinamicidade das vendas demanda agilidade e informações claras._
 
-### FEFO
+## FEFO
 
 Sigla para _"First Expired First Out"_, ou seja, entre os produtos do estoque **o primeiro em ordem de validade é o primeiro a sair para a área de vendas**. É um mercado em ascensão nas áreas de comunidade, devido ao baixo valor que os produtos de data curta (FEFO) adquirem no grande mercado. Geralmente as grandes indústrias dão vazão a esses produtos dentro desses mercados comunitários, para não gerar perdas. Como a tendência da superprodução é o desperdício, esses pólos de mercantilização também servem a uma vez como espaços de acesso a alimentos e vias de recuperação do que seria facilmente descartado pela grande indústria alimentícia.
 
@@ -31,7 +31,7 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 - [ ] PDF com as informações das movimentações do mês
 - [ ] Acessando Informações Filtradas
 
-### Detalhamento do Produto:
+### 🧾 Detalhamento do Produto
 
 - [ ] Nome do produto (até 100 caracteres)
 - [ ] Código do produto (para identificação)
@@ -42,11 +42,8 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 - [ ] Estoque Disponível
 - [ ] Estoque Mínimo
 - [ ] Estoque Máximo
-
 - [ ] Configurar notificações por e-mail quando o estoque atingir o mínimo ou máximo.
-
 - [ ] Permitir entrada ou saída de produtos no estoque.
-
 - [ ] Origem do Produto (código conforme a legislação)
 - [ ] Tipo do Produto (para definir alíquotas de impostos)
 - [ ] NCM (Nomenclatura Comum do Mercosul para nota fiscal)
@@ -56,8 +53,8 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 - [ ] Peso Líquido (sem embalagem)
 - [ ] Peso Bruto (com embalagem)
 
-
 ### 🛠 Tecnologias
+
 <p>As seguintes ferramentas foram usadas na construção do projeto:</p>
 
 - ![DJANGO](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
