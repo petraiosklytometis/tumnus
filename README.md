@@ -55,7 +55,7 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 
 ### 🛠 Tecnologias
 
-<p>As seguintes ferramentas foram usadas na construção do projeto:</p>
+As seguintes ferramentas foram usadas na construção do projeto:
 
 - ![DJANGO](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 - ![BOOTSTRAP](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
