@@ -29,6 +29,30 @@ Construir um ERP modular com interface amigável ao usuário, um sistema de gere
 - [ ] PDF com as informações das movimentações do mês
 - [ ] Acessando Informações Filtradas
 
+### Detalhamento do Produto:
+
+- [ ]: Nome do produto (até 100 caracteres)
+- [ ]: Código do produto (para identificação)
+- [ ]: Código de Barras (EAN)
+- [ ]: Categoria de Classificação do Produto
+- [ ]: Valor de Venda
+- [ ]: Custo Médio (habilitado apenas se o estoque for maior que 1)
+- [ ]: Estoque Disponível
+- [ ]: Estoque Mínimo
+- [ ]: Estoque Máximo
+
+- [ ]: Configurar notificações por e-mail quando o estoque atingir o mínimo ou máximo.
+
+- [ ]: Permitir entrada ou saída de produtos no estoque.
+
+- [ ]: Origem do Produto (código conforme a legislação)
+- [ ]: Tipo do Produto (para definir alíquotas de impostos)
+- [ ]: NCM (Nomenclatura Comum do Mercosul para nota fiscal)
+- [ ]: CEST (Código Especificador da Substituição Tributária)
+- [ ]: Unidade de Medida (na nota fiscal)
+- [ ]: Observações (detalhes adicionais do produto)
+- [ ]: Peso Líquido (sem embalagem)
+- [ ]: Peso Bruto (com embalagem)
 
 
 ### 🛠 Tecnologias
