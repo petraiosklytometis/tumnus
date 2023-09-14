@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load filters %}
 {% block 'body' %}
 <div class="container mt-4 mb-4">
   {% if messages %}{% endif %}
@@ -104,13 +105,14 @@
 
     {% for produto in produtos_tab %}
     <div class="row justify-content-center mb-3">
+
         <div class="col-md-12">
           <div class="card shadow-0 border rounded-3">
             <div class="card-body">
               <div class="row g-0">
                 <div class="col-xl-3 col-md-4 d-flex justify-content-center">
                     <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
-                        <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/8.webp" class="w-100" />
+                        <img src={{produto | get_first_image}} class="w-100" />
                         <a href="#!">
                             <div class="hover-overlay">
                                 <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -134,7 +136,7 @@
                     <h4 class="mb-1 me-1">|Venda: |{{ produto.preco_venda | floatformat:4 }}</h4>
                     <span class="text-danger"> | Custo: |{{ produto.preco_custo | floatformat:4 }}</span>
                   </div>
-                  <h6 class="text-success">Quantidade em Estoque: {{produto.quantidade | floatformat:2}}</h6>
+                  <h6 class="text-success">Estoque: {{produto.quantidade | floatformat:2}}</h6>
                   <div class="mt-4">
                     <button class="btn btn-primary shadow-0" type="button">Acessar</button>
                   </div>
