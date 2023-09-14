@@ -1,69 +1,77 @@
-
+/* Estilos para a barra de navegação */
 .navbar {
-    margin-left: 20px; /* Espaço à esquerda */
-    margin-right: 20px; /* Espaço à direita */
-    border-radius: 10px; /* Borda arredondada */
-    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2); /* Sombra */
-    padding-left: 10px; /* Espaço à esquerda para afastar a primeira palavra */
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+    padding-left: 10px;
 }
 
-
-
+/* Estilos para o título do formulário */
 .form-title {
-    background-color: #0073e6; /* Azul */
-    color: #fff; /* Texto branco */
-    padding: 10px; /* Espaçamento interno */
-    border-radius: 5px; /* Borda arredondada */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para destacar o título */
+    background-color: #0073e6;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para o formulário de contato */
 .contact-form {
     background: #fff;
     margin-top: 2%;
     margin-bottom: 5%;
-    width: 90%; /* Aumente a largura para 90% */
-    max-width: 800px; /* Defina um valor máximo para a largura */
+    width: 90%;
+    max-width: 800px;
     padding: 30px;
-    border-radius: 10px; /* Borda arredondada */
+    border-radius: 10px;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
-    border: 1px solid #fff; /* Adicione a borda branca */
-    margin-left: auto; /* Centraliza horizontalmente */
-    margin-right: auto; /* Centraliza horizontalmente */
+    border: 1px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Estilos para o fundo */
 .fundo {
-    background-color: #f8f8f8; /* Fundo mais claro */
-    color: #333; /* Texto escuro */
+    background-color: #f8f8f8;
+    color: #333;
 }
 
+/* Estilos para a barra de navegação */
 .bg-nav {
-    background-color: #0073e6; /* Azul */
+    background-color: #0073e6;
 }
 
+/* Estilos para a linha horizontal */
 .bg-hr {
-    background-color: #ddd; /* Cinza claro */
+    background-color: #ddd;
 }
 
+/* Estilos para botões */
 .bg-btn {
-    background-color: #4caf50; /* Verde */
-    color: #fff; /* Texto branco */
+    background-color: #4caf50;
+    color: #fff;
 }
 
+/* Estilos para tabelas */
 .bg-table {
-    background-color: #fff; /* Fundo branco */
-    color: #333; /* Texto escuro */
+    background-color: #fff;
+    color: #333;
 }
 
+/* Estilos para botões de contato */
 .btnContact {
-    border-radius: 5px; /* Borda arredondada */
+    border-radius: 5px;
 }
 
+/* Estilos para tabelas */
 .table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
 }
 
+/* Estilos para cabeçalhos de tabela */
 .table th,
 .table td {
     padding: 8px;
@@ -71,7 +79,21 @@
     border-bottom: 1px solid #ddd;
 }
 
+/* Estilos para cabeçalhos de tabela */
 .table th {
-    background-color: #0073e6; /* Azul */
-    color: #fff; /* Texto branco */
+    background-color: #0073e6;
+    color: #fff;
+}
+
+/* Efeito de zoom na imagem quando o mouse está sobre ela */
+.bg-image:hover {
+    transform: scale(1.1); /* Ou qualquer outra transformação desejada */
+    /* Outros estilos de hover, se necessário */
+}
+
+/* Efeito de zoom na imagem quando o mouse está sobre ela */
+.hover-overlay:hover {
+    transform: scale(1.1); /* Ou qualquer outra transformação desejada */
+    transition: transform 0.6s ease; /* Adicione a transição suave aqui */
+    /* Outros estilos de hover, se necessário */
 }

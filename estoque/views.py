@@ -6,12 +6,16 @@ from datetime import date
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.contrib import messages
 
 def add_produto(request):
     if request.method == "GET":
         categorias = Categoria.objects.all()
+        produtos_tab = Produto.objects.all()
         return render(request, 'add_produto.html', 
-                        {'categorias': categorias})
+                        {'categorias': categorias, 'produtos_tab': produtos_tab})
     elif request.method == "POST":
         descricao = request.POST.get('descricao')
         ean = request.POST.get('ean')
@@ -49,7 +53,9 @@ def add_produto(request):
 
             img_dg = Imagem(imagem = img_final, produto=produto)
             img_dg.save()
-        return HttpResponse('Foi')
+            messages.add_message(request, 
+                        messages.SUCCESS, 'Produto cadastrado com sucesso!')
+        return redirect(reverse('add_produto'))
 
         
 # Create your views here.

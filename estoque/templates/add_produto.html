@@ -1,81 +1,151 @@
 {% extends 'base.html' %}
-
 {% block 'body' %}
 <div class="container mt-4 mb-4">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <form
-                action="{% url 'add_produto' %}"
-                method="POST"
-                enctype="multipart/form-data"
-                class="contact-form"
-            >
-                {% csrf_token %}
-                <h3 class="form-title">CADASTRO DE PRODUTOS</h3> <!-- Adicionei a classe "form-title" -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="imagens">Imagens:</label>
-                        <input type="file" name="imagens" id="imagens" class="form-control" multiple />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="descricao">Descrição:</label>
-                        <input type="text" name="descricao" id="descricao" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="ean">EAN:</label>
-                        <input type="number" name="ean" id="ean" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="sku">SKU:</label>
-                        <input type="text" name="sku" id="sku" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="categoria">Categoria:</label>
-                        <select name="categoria" id="categoria" class="form-control">
-                            {% for categoria in categorias %}
-                            <option value="{{categoria.id}}">{{categoria.titulo}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="quantidade">Quantidade em Estoque:</label>
-                        <input type="number" name="quantidade" id="quantidade" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="preco_custo">Preço de Custo:</label>
-                        <input
-                            type="number"
-                            pattern="[0-9]+([,\.][0-4]+)?"
-                            min="0"
-                            step="any"
-                            name="preco_custo"
-                            id="preco_custo"
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="preco_venda">Preço de Venda:</label>
-                        <input
-                            type="number"
-                            pattern="[0-9]+([,\.][0-4]+)?"
-                            min="0"
-                            step="any"
-                            name="preco_venda"
-                            id="preco_venda"
-                            class="form-control"
-                        />
-                    </div>
-                </div>
-                <br />
-                <button type="submit" class="btnContact">Cadastrar</button>
-            </form>
+  {% if messages %}{% endif %}
+  <br>
+  {% for message in messages %}
+  <div class="alert {{message.tags}}">{{message}}</div>
+  {% endfor %}
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <form
+        action="{% url 'add_produto' %}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="contact-form"
+      >
+        {% csrf_token %}
+        <h3 class="form-title">CADASTRO DE PRODUTOS</h3>
+        <!-- Adicionei a classe "form-title" -->
+        <div class="row">
+          <div class="col-md-6">
+            <label for="imagens">Imagens:</label>
+            <input
+              type="file"
+              name="imagens"
+              id="imagens"
+              class="form-control"
+              multiple
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="descricao">Descrição:</label>
+            <input
+              type="text"
+              name="descricao"
+              id="descricao"
+              class="form-control"
+            />
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="ean">EAN:</label>
+            <input type="number" name="ean" id="ean" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label for="sku">SKU:</label>
+            <input type="text" name="sku" id="sku" class="form-control" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria" class="form-control">
+              {% for categoria in categorias %}
+              <option value="{{categoria.id}}">{{categoria.titulo}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="quantidade">Quantidade em Estoque:</label>
+            <input
+              type="number"
+              name="quantidade"
+              id="quantidade"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="preco_custo">Preço de Custo:</label>
+            <input
+              type="number"
+              pattern="[0-9]+([,\.][0-4]+)?"
+              min="0"
+              step="any"
+              name="preco_custo"
+              id="preco_custo"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="preco_venda">Preço de Venda:</label>
+            <input
+              type="number"
+              pattern="[0-9]+([,\.][0-4]+)?"
+              min="0"
+              step="any"
+              name="preco_venda"
+              id="preco_venda"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <br />
+        <button type="submit" class="btnContact">Cadastrar</button>
+      </form>
     </div>
+  </div>
+  <hr style="background-color: gray;">
+  <!--###################################################-->
+  <div class="listar_produtos">
+
+    {% for produto in produtos_tab %}
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-12">
+          <div class="card shadow-0 border rounded-3">
+            <div class="card-body">
+              <div class="row g-0">
+                <div class="col-xl-3 col-md-4 d-flex justify-content-center">
+                    <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
+                        <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/8.webp" class="w-100" />
+                        <a href="#!">
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>                    
+                </div>
+                <div class="col-xl-6 col-md-5 col-sm-7">
+                  <h5>{{ produto.descricao }}</h5>
+                  <p class="text mb-4 mb-md-0">
+                    Dados do Produto <br>
+                    Categoria: {{produto.categoria}}<br>
+                    # TODO: Dados detalhados de tributação<br>
+                    EAN: {{produto.ean}}  |  SKU: {{produto.sku}}<br>
+                    NCM, CEST, CFOP Lote<br>
+                    Data de Validade
+                  </p>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-5">
+                  <div class="d-flex flex-row align-items-center mb-1">
+                    <h4 class="mb-1 me-1">|Venda: |{{ produto.preco_venda | floatformat:4 }}</h4>
+                    <span class="text-danger"> | Custo: |{{ produto.preco_custo | floatformat:4 }}</span>
+                  </div>
+                  <h6 class="text-success">Quantidade em Estoque: {{produto.quantidade | floatformat:2}}</h6>
+                  <div class="mt-4">
+                    <button class="btn btn-primary shadow-0" type="button">Acessar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
 </div>
 {% endblock %}
