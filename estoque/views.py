@@ -9,7 +9,9 @@ import sys
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib import messages
+from rolepermissions.decorators import has_permission_decorator
 
+@has_permission_decorator('cadastrar_produtos')
 def add_produto(request):
     if request.method == "GET":
         categorias = Categoria.objects.all()
@@ -57,5 +59,9 @@ def add_produto(request):
                         messages.SUCCESS, 'Produto cadastrado com sucesso!')
         return redirect(reverse('add_produto'))
 
-        
+def produto(request, slug):
+    if request.method == "GET":
+        produto = Produto.objects.get(slug=slug)
+    return HttpResponse(slug)
+
 # Create your views here.

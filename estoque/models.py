@@ -1,4 +1,6 @@
+from collections.abc import Iterable
 from django.db import models
+from django.template.defaultfilters import slugify
 
 class Categoria(models.Model):
     titulo = models.CharField(max_length=40)
@@ -8,7 +10,7 @@ class Categoria(models.Model):
     
 
 class Produto(models.Model):
-    descricao = models.CharField(max_length=40)
+    descricao = models.CharField(max_length=40, unique=True)
     # TODO: Buscar Produto no Cosmos pelo EAN
     ean = models.CharField(max_length=13)
     sku = models.CharField(max_length=20)
@@ -17,10 +19,20 @@ class Produto(models.Model):
     preco_custo = models.FloatField()
     # TODO: Fazer cálculo de preço por BinaryField
     preco_venda = models.FloatField()
+    # slug para formar urls derivados das descrições
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
     def __str__(self) -> str:
         return self.descricao
     
+    """ função que salva com seu próprio método
+        e depois recorre ao super (classe Pai) """
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.descricao)            
+        
+        return super().save(*args, **kwargs)
+
     def gerar_desconto(self, desconto):
         # TODO: Gerar desconto por quantidade no PDV
         return self.preco_venda - ((self.preco_venda * desconto) / 100)
