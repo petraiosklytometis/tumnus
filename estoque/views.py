@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import ProdutoForm
 from .models import Categoria,Produto,Imagem
 from django.http import HttpResponse
 from PIL import Image, ImageDraw
@@ -62,6 +63,9 @@ def add_produto(request):
 def produto(request, slug):
     if request.method == "GET":
         produto = Produto.objects.get(slug=slug)
-    return HttpResponse(slug)
+        data = produto.__dict__
+        data['categoria'] = produto.categoria.id
+        form = ProdutoForm(initial=data)
+        return render(request, 'produto.html', {'form': form})
 
 # Create your views here.
