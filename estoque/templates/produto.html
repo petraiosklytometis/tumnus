@@ -1,3 +1,56 @@
-<h1>Produto</h1>
+{% extends "base.html" %}
+{% block 'body' %}
 
-{{form}}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+      <form
+        action="{% url 'add_produto' %}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="contact-form"
+      >
+        {% csrf_token %}
+        <h3 class="form-title">CADASTRO DE PRODUTOS</h3>
+        <!-- Adicionei a classe "form-title" -->
+        <div class="row">
+          <div class="col-md-6">
+            <label for="descricao">Descrição:</label>
+            <p>{{form.descricao}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="ean">EAN:</label>
+            <p>{{form.ean}}</p>
+          </div>
+          <div class="col-md-6">
+            <label for="sku">SKU:</label>
+            <p>{{form.sku}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="categoria">Categoria:</label>
+            <p>{{form.categoria}}</p>
+          </div>
+          <div class="col-md-6">
+            <label for="quantidade">Quantidade em Estoque:</label>
+            <p>{{form.quantidade}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="preco_custo">Preço de Custo:</label>
+            <p>{{form.preco_custo}}</p>
+          </div>
+          <div class="col-md-6">
+            <label for="preco_venda">Preço de Venda:</label>
+            <p class="form-con">{{form.preco_venda}}<p/>
+          </div>
+        </div>
+        <br />
+        <button type="submit" class="btnContact">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+{% endblock%}

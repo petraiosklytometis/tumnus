@@ -15,8 +15,19 @@ from rolepermissions.decorators import has_permission_decorator
 @has_permission_decorator('cadastrar_produtos')
 def add_produto(request):
     if request.method == "GET":
-        categorias = Categoria.objects.all()
+        ean = request.GET.get('ean')
+        descricao = request.GET.get('descricao')
+        categoria = request.GET.get('categoria')
         produtos_tab = Produto.objects.all()
+
+        if ean or descricao or categoria:
+            if ean:
+                produtos_tab = produtos_tab.filter(ean=ean)
+            if descricao:
+                produtos_tab = produtos_tab.filter(descricao__icontains=descricao)
+             
+
+        categorias = Categoria.objects.all()
         return render(request, 'add_produto.html', 
                         {'categorias': categorias, 'produtos_tab': produtos_tab})
     elif request.method == "POST":
@@ -67,5 +78,6 @@ def produto(request, slug):
         data['categoria'] = produto.categoria.id
         form = ProdutoForm(initial=data)
         return render(request, 'produto.html', {'form': form})
+    
 
 # Create your views here.

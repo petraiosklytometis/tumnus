@@ -99,6 +99,29 @@
   </div>
   <hr style="background-color: gray" />
   <!--###################################################-->
+  <form action="{% url 'add_produto' %}" method="GET">
+    <div class="row" style="padding-bottom: 1%;">
+      <div class="col-md">
+        <input type="number" name="ean" placeholder="EAN..." class="form-control">
+      </div>
+      <div class="col-md">
+        <input type="text" name="descricao" placeholder="Produto..." class="form-control">
+      </div>
+        <div class="col-md">
+          <select name="categoria" class="form-control">
+            <option value="">Todas as Categorias</option>
+            {% for categoria in categorias %}
+            <option value="{{categoria.id}}">{{categoria.titulo}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      <div class="col-md">
+        <input type="submit" value="Filtrar" class="btn btn-primary">        
+      </div>
+    </div>
+  </form>
+  <!--###################################################-->
+  <hr style="background-color: gray" />
   <div class="listar_produtos">
     <div class="row">
       {% for produto in produtos_tab %}
