@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import ProdutoForm
 from .models import Categoria,Produto,Imagem
-from django.http import HttpResponse
 from PIL import Image, ImageDraw
 from datetime import date
 from io import BytesIO
@@ -71,13 +70,20 @@ def add_produto(request):
                         messages.SUCCESS, 'Produto cadastrado com sucesso!')
         return redirect(reverse('add_produto'))
 
-def produto(request, slug):
-    if request.method == "GET":
+def update_produto(request, slug):
+    produto = get_object_or_404(Produto, slug=slug)
+
+    if request.method == "POST":
         produto = Produto.objects.get(slug=slug)
-        data = produto.__dict__
-        data['categoria'] = produto.categoria.id
-        form = ProdutoForm(initial=data)
-        return render(request, 'produto.html', {'form': form})
+        form = ProdutoForm(request.POST, instance=produto)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Produto atualizado com sucesso!')
+            return redirect(reverse('add_produto'))
+    else:
+        form = ProdutoForm(instance=produto)
+    
+    return render(request, 'update_produto.html', {'form': form, 'produto': produto})
     
 
 # Create your views here.

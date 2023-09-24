@@ -10,15 +10,15 @@ class Categoria(models.Model):
     
 
 class Produto(models.Model):
-    descricao = models.CharField(max_length=40, unique=True)
+    descricao = models.CharField(max_length=40)
     # TODO: Buscar Produto no Cosmos pelo EAN
     ean = models.CharField(max_length=13)
     sku = models.CharField(max_length=20)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    quantidade = models.FloatField()
-    preco_custo = models.FloatField()
+    quantidade = models.FloatField(null=True)
+    preco_custo = models.FloatField(null=True)
     # TODO: Fazer cálculo de preço por BinaryField
-    preco_venda = models.FloatField()
+    preco_venda = models.FloatField(null=True)
     # slug para formar urls derivados das descrições
     slug = models.SlugField(unique=True, blank=True, null=True)
 
@@ -29,7 +29,7 @@ class Produto(models.Model):
         e depois recorre ao super (classe Pai) """
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.descricao)            
+            self.slug = slugify(self.ean)            
         
         return super().save(*args, **kwargs)
 

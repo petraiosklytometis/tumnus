@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block 'body' %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+      <form
+        action="{% url 'update_produto' slug=produto.slug%}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="contact-form"
+      >
+        {% csrf_token %}
+        <h3 class="form-title">ATUALIZAÇÃO DE PRODUTOS</h3>
+        <!-- Adicionei a classe "form-title" -->
+        <input type="hidden" name="id" value="{{ form.instance.id }}">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="{{ form.descricao.id_for_label }}">Descrição:</label>
+            {{ form.descricao }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="{{ form.ean.id_for_label }}">EAN:</label>
+            {{ form.ean }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.sku.id_for_label }}">SKU:</label>
+            {{ form.sku }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="{{ form.categoria.id_for_label }}">Categoria:</label>
+            {{ form.categoria }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.quantidade.id_for_label }}">Quantidade em Estoque:</label>
+            {{ form.quantidade }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="{{ form.preco_custo.id_for_label }}">Preço de Custo:</label>
+            {{ form.preco_custo }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.preco_venda.id_for_label }}">Preço de Venda:</label>
+            {{ form.preco_venda }}
+          </div>
+        </div>
+        <br />
+        <button type="submit" class="btnContact">Atualizar</button> <!-- Atualize o rótulo do botão -->
+      </form>
+    </div>
+  </div>
+{% endblock %}

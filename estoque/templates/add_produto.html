@@ -167,7 +167,7 @@
                       Estoque: {{produto.quantidade | floatformat:2}}
                     </h6>
                     <div class="mt-4">
-                      <a href="{% url 'produto' produto.slug%}" class="btn btn-primary" type="button" >Acessar</a>
+                      <a href="{% url 'update_produto' slug=produto.slug %}" class="btn btn-primary" type="button" >Acessar</a>
                     </div>
                   </div>
                 </div>
