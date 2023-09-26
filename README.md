@@ -1,4 +1,4 @@
-# Sistema de Gestão de Estabelcimento
+# Sistema de Gestão de Estabelecimento
 
 _Dando início ao Side Project de um Sistema de Gestão de Estabelecimento, com foco no controle de estoque, visualização de vendas e desempenho geral (Dashboard) e controle de datas de validade. O foco é o Mercado FEFO, onde tenho experiência e onde a dinamicidade das vendas demanda agilidade e informações claras._
 
