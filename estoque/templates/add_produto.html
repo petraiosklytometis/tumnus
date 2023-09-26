@@ -125,10 +125,10 @@
   <div class="listar_produtos">
     <div class="row">
       {% for produto in produtos_tab %}
-      <div class="col-md">
+      <div class="col-md-12 mb-12">
         <div class="row justify-content-center mb-3">
           <div class="col-md-12">
-            <div class="card shadow-0 border rounded-3">
+            <div class="card produto-card shadow-0 border rounded-3">
               <div class="card-body">
                 <div class="row g-0">
                   <div class="col-xl-3 col-md-4 d-flex justify-content-center">
@@ -143,33 +143,37 @@
                       />
                       {% endif %}
                     </div>
+                  </br>
                   </div>
-                  <div class="col-xl-6 col-md-5 col-sm-7">
-                    <h5>{{ produto.descricao }}</h5>
-                    <p class="text mb-4 mb-md-0">
-                      Categoria: {{produto.categoria}}<br />
-                      # TODO: Dados detalhados de tributação<br />
-                      EAN: {{produto.ean}} | SKU: {{produto.sku}}<br />
-                      NCM, CEST, CFOP Lote<br />
-                      Data de Validade
-                    </p>
-                  </div>
-                  <div class="col-xl-3 col-md-3 col-sm-5">
-                    <div class="d-flex flex-row align-items-center mb-1">
-                      <h4 class="mb-1 me-1 text-success">
-                        Venda: {{ produto.preco_venda | floatformat:2 }}
-                      </h4>
-                    </div>
-                    <h6 class="text-danger">
-                      Custo: {{ produto.preco_custo | floatformat:4 }}
-                    </h6>
-                    <h6 class="text-success">
-                      Estoque: {{produto.quantidade | floatformat:2}}
-                    </h6>
+                  <div class="col-xl-9 col-md-8 col-sm-12">
+                    <table class="table">
+                        <tr>
+                            <th>Descrição</th>
+                            <th>EAN</th>
+                            <th>Categoria</th>
+                            <th>Preço de Venda</th>
+                            <th>Preço de Custo</th>
+                            <th>Estoque</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {% if produto.descricao|length > 20 %}
+                                <span title="{{ produto.descricao }}">{{ produto.descricao|slice:":20" }}...</span>
+                                {% else %}
+                                {{ produto.descricao }}
+                                {% endif %}
+                            </td>
+                            <td>{{ produto.ean }}</td>
+                            <td>{{ produto.categoria }}</td>
+                            <td>{{ produto.preco_venda | floatformat:2 }}</td>
+                            <td>{{ produto.preco_custo | floatformat:4 }}</td>
+                            <td>{{ produto.quantidade | floatformat:2 }}</td>
+                        </tr>
+                    </table>
                     <div class="mt-4">
-                      <a href="{% url 'update_produto' slug=produto.slug %}" class="btn btn-primary" type="button" >Acessar</a>
+                        <a href="{% url 'update_produto' slug=produto.slug %}" class="btn btn-primary" type="button" >Acessar</a>
                     </div>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
