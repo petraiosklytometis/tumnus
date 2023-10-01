@@ -10,6 +10,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib import messages
 from rolepermissions.decorators import has_permission_decorator
+from django.utils.html import escape
 
 @has_permission_decorator('cadastrar_produtos')
 def add_produto(request):
@@ -78,7 +79,8 @@ def update_produto(request, slug):
         form = ProdutoForm(request.POST, instance=produto)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Produto atualizado com sucesso!')
+            succes_message = 'Produto atualizado com sucesso!'
+            messages.success(request, escape(succes_message))
             return redirect(reverse('add_produto'))
     else:
         form = ProdutoForm(instance=produto)
